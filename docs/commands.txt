@@ -1,0 +1,42 @@
+project --topLevelPackage org.vardb.hcv --projectName vardb-hcv --java 6
+
+persistence setup --provider HIBERNATE --database POSTGRES
+
+entity --class ~.sequences.Sequence
+field string --fieldName identifier --notNull
+field string --fieldName accession --notNull
+field string --fieldName sequence --notNull
+
+
+
+
+
+entity --class ~.users.User --table users --permitReservedWords true
+field string password --notNull
+field boolean enabled
+field string firstname
+field string lastname
+field string email
+field string affiliation
+
+email sender setup --hostServer smtp.hiroshima-u.ac.jp
+
+
+web mvc setup
+
+
+web mvc controller --class ~.web.PageController
+
+
+mvn tomcat:run
+
+
+#set up git repository
+git init
+git add .
+
+git commit -m "first commit"
+git remote add origin git@github.com:hcnh174/vardb-hcv.git
+git push origin master
+
+git clone git@github.com:hcnh174/vardb-roo.git
