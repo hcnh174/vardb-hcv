@@ -35,6 +35,15 @@
 	<build>
 		<plugins>
 			<plugin>
+            	<!--  mvn exec:java -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>				
+				<configuration>
+					<mainClass>org.vardb.hcv.setup.Setup</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
