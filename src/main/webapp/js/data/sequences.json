@@ -1,0 +1,7 @@
+{
+    success: true,
+    sequences: [
+        {id: 1, name: 'ABC123', nt: 'acgttcgctagctagctcgatcgactgcatcag'},
+        {id: 2, name: 'DEF456', nt: 'tcgactgactgcacgactagctacgactacgactacg'}
+    ]
+}
