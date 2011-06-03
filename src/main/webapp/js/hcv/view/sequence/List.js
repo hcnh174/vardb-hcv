@@ -5,7 +5,11 @@ Ext.define('hcv.view.sequence.List' ,{
     title : 'All Sequences',
     
     store: 'Sequences',
-
+    
+    verticalScrollerType : 'paginggridscroller',
+	loadMask : true,
+	invalidateScrollerOnRefresh : false,
+	
     initComponent: function() {
 
         this.columns = [
@@ -14,5 +18,7 @@ Ext.define('hcv.view.sequence.List' ,{
         ];
 
         this.callParent(arguments);
+        
+        this.store.guaranteeRange(0, 199);
     }
 });

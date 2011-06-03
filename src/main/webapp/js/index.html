@@ -6,7 +6,30 @@
 
     <script type="text/javascript" src="/ext-4.0.1/ext-debug.js"></script>
 
-    <script type="text/javascript" src="hcv/app.js"></script>
+	<script type="text/javascript" src="/vardb-hcv/api-debug.js"></script>
+
+    <script type="text/javascript" src="hcv/app.js?actionNs=hcvDirect"></script>
 </head>
-<body></body>
+<body>
+
+<script>
+Ext.Loader.setConfig({
+	enabled : true
+});
+
+Ext.Loader.setPath('Ext.ux', '../ux/');
+Ext.require([ 'Ext.grid.*', 
+              'Ext.data.*', 
+              'Ext.util.*',
+		      'Ext.grid.PagingScroller' ]);
+
+Ext.onReady(function() {
+	Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
+	hcvDirect.doEcho('hi there', function(message)
+	{
+		alert(message);
+	});
+});
+</script>
+</body>
 </html>

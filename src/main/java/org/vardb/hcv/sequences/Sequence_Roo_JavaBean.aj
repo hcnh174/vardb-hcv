@@ -7,14 +7,6 @@ import java.lang.String;
 
 privileged aspect Sequence_Roo_JavaBean {
     
-    public String Sequence.getIdentifier() {
-        return this.identifier;
-    }
-    
-    public void Sequence.setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
-    
     public String Sequence.getAccession() {
         return this.accession;
     }
@@ -29,6 +21,14 @@ privileged aspect Sequence_Roo_JavaBean {
     
     public void Sequence.setSequence(String sequence) {
         this.sequence = sequence;
+    }
+    
+    public String Sequence.getGenotype() {
+        return this.genotype;
+    }
+    
+    public void Sequence.setGenotype(String genotype) {
+        this.genotype = genotype;
     }
     
 }

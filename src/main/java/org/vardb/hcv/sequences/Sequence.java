@@ -7,15 +7,30 @@ import javax.validation.constraints.NotNull;
 
 @RooJavaBean
 @RooToString
-@RooEntity
+@RooEntity(table = "sequences")
 public class Sequence {
-
-    @NotNull
-    private String identifier;
 
     @NotNull
     private String accession;
 
     @NotNull
     private String sequence;
+    
+    private String genotype;
+    
+    public Sequence()
+    {
+    	
+    }
+    
+    public Sequence(String accession)
+    {
+    	this.accession=accession;
+    }
+    
+    public Sequence(String accession, String sequence)
+    {
+    	this.accession=accession;
+    	this.sequence=sequence;
+    }
 }

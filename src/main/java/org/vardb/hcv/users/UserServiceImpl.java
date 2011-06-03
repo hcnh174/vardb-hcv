@@ -1,25 +1,7 @@
 package org.vardb.hcv.users;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.dom4j.Element;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.vardb.util.CBeanHelper;
-import org.vardb.util.CDateHelper;
-import org.vardb.util.CDom4jHelper;
-import org.vardb.util.CStringHelper;
-import org.vardb.util.ThreadHelper;
-import org.vardb.util.services.EmailService;
 
 @Service("userService")
 @Transactional
@@ -34,12 +16,13 @@ public class UserServiceImpl implements UserService
 
 	//@Resource(name = "loginService") private LoginService loginService;
 	
-	@Autowired private UserRepository repository;
+	//@Autowired private UserRepository repository;
 		
 	//public void setEmailService(final EmailService emailService){this.emailService=emailService;}
 	//public void setRecaptcha(final ReCaptchaImpl recaptcha){this.recaptcha=recaptcha;}
 	//public void setLoginService(final LoginService loginService){this.loginService=loginService;}
 	
+	/*
 	@Override
 	//@Cacheable("users")
 	public UserDetails loadUserByUsername(String username)
@@ -57,6 +40,7 @@ public class UserServiceImpl implements UserService
 			return null;
 		return user;
 	}
+	*/
 	
 	/*
 	@Override

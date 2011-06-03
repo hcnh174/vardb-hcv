@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 import org.vardb.hcv.sequences.Sequence;
@@ -20,6 +21,8 @@ import org.vardb.hcv.sequences.Sequence;
 privileged aspect Sequence_Roo_Entity {
     
     declare @type: Sequence: @Entity;
+    
+    declare @type: Sequence: @Table(name = "sequences");
     
     @PersistenceContext
     transient EntityManager Sequence.entityManager;

@@ -1,8 +1,12 @@
 Ext.define('hcv.store.Sequences', {
     extend: 'Ext.data.Store',
     model: 'hcv.model.Sequence',
-    autoLoad: true,
-
+    //autoLoad: true,
+    pageSize : 200,
+    remoteSort : true,
+    buffered: true,
+    
+    /*
     proxy: {
         type: 'ajax',
         //url: 'data/sequences.json',
@@ -16,4 +20,18 @@ Ext.define('hcv.store.Sequences', {
             successProperty: 'success'
         }
     }
+	*/
+    
+	proxy : {
+		type : 'direct',
+		directFn : hcvDirect.loadWithPaging,
+		reader : {
+			root : 'records',
+			totalProperty : 'total'
+		}
+	},
+	sorters : [ {
+		property : 'accession',
+		direction : 'ASC'
+	} ]
 });

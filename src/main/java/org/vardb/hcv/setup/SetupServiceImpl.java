@@ -1,26 +1,6 @@
-package org.vardb.setup;
+package org.vardb.hcv.setup;
 
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
-import org.springframework.batch.core.JobParameters;
-import org.springframework.batch.core.JobParametersBuilder;
-import org.springframework.batch.core.JobParametersInvalidException;
-import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
-import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
-import org.springframework.batch.core.repository.JobRestartException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.vardb.util.CException;
-import org.vardb.util.CFileHelper;
-import org.vardb.util.CMessageWriter;
-import org.vardb.util.CStringHelper;
-import org.vardb.util.CXmlHelper;
-import org.vardb.util.CXmlValidationException;
-import org.vardb.util.SpringBatchHelper;
 
 public class SetupServiceImpl
 {	
@@ -42,6 +22,7 @@ public class SetupServiceImpl
 	}
 	*/
 	
+	/*
 	public void loadSequences(String filename) {
 		JobExecution jobExecution = runJob("loadSequences","resource",filename);
 		System.out.println("Job ended with status: "+jobExecution.getExitStatus());
@@ -103,4 +84,5 @@ public class SetupServiceImpl
 			validate(xml,schema,writer);
 		}
 	}
+	*/
 }

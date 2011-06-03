@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly=false)
-public interface UserService extends UserDetailsService
+public interface UserService //extends UserDetailsService
 {
-	User findUserByUsername(String username);
+	//User findUserByUsername(String username);
 	/*
 	//User getUserByUserId(String user_id);	
 	User findOrCreateUser(String username);

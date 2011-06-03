@@ -1,31 +1,38 @@
 package org.vardb.hcv.setup;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.vardb.hcv.sequences.SequenceService;
+
 //import groovy.lang.GroovyShell;
 
-import javax.swing.JFrame;
-
-import org.vardb.util.CException;
-
-import bsh.Interpreter;
-import bsh.util.JConsole;
 
 
 public class Setup {
 
+	
+	
 	// mvn exec:java
 	public static void main(String ... args)
 	{
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
+		SequenceService service=(SequenceService)ctx.getBean("sequenceService");
+		service.testRepository();
+		
 		//GraphHelper.test();
-		GenbankParser.parseFile("d:/unzipped/hcv.gb");
+		//GenbankParser.parseFile("d:/unzipped/hcv.gb");
 		
 		//Setup setup=new Setup();
 		//String filename="f:/analysis/personalized/svr.arff";
 		//WekaHelper.test(filename);
+	
+		
 	}
 	
-	
+	/*
 	public Setup()
 	{
+		
 		String dir="C:/dropbox/My Dropbox/vardb/dr-5/sequence/";
 		//String dir="C:/Documents and Settings/nhayes/My Documents/My Dropbox/vardb/dr-5/sequence/";
 		String filename=dir+"anaplasma.marginale_st_maries-msp2_p44_map1_omp.txt";
@@ -49,8 +56,9 @@ public class Setup {
 		{
 			throw new CException(e);
 		}
+		
 	}
-
+	 */
 }
 
 
