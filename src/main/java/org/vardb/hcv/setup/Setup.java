@@ -2,6 +2,7 @@ package org.vardb.hcv.setup;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.vardb.hcv.resources.ResourceService;
 import org.vardb.hcv.sequences.SequenceService;
 
 //import groovy.lang.GroovyShell;
@@ -16,8 +17,11 @@ public class Setup {
 	public static void main(String ... args)
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
-		SequenceService service=(SequenceService)ctx.getBean("sequenceService");
-		service.testRepository();
+		SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
+		//sequenceService.testRepository();
+		
+		ResourceService resourceService=(ResourceService)ctx.getBean("resourceService");
+		resourceService.testRepository();
 		
 		//GraphHelper.test();
 		//GenbankParser.parseFile("d:/unzipped/hcv.gb");
