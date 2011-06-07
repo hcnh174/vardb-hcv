@@ -9,12 +9,12 @@ import org.bson.types.ObjectId;
 
 privileged aspect Pathogen_Roo_JavaBean {
     
-    public ObjectId Pathogen.getId() {
-        return this.id;
+    public String Pathogen.getIdentifier() {
+        return this.identifier;
     }
     
-    public void Pathogen.setId(ObjectId id) {
-        this.id = id;
+    public void Pathogen.setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
     
     public Integer Pathogen.getTaxid() {

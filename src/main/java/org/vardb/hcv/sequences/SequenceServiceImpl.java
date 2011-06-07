@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class SequenceServiceImpl implements SequenceService
 {
-	@Autowired private SequenceRepository repository;
+	@Autowired SequenceRepository repository;
 	
 	public void testRepository()
 	{

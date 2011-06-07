@@ -3,14 +3,13 @@
 
 package org.vardb.hcv.resources;
 
-import java.lang.String;
 
 privileged aspect Pathogen_Roo_ToString {
     
     public String Pathogen.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Description: ").append(getDescription()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Identifier: ").append(getIdentifier()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Taxid: ").append(getTaxid());
         return sb.toString();

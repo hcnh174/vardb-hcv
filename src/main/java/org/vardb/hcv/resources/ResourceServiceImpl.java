@@ -17,14 +17,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class ResourceServiceImpl implements ResourceService
 {
 	@Autowired MongoTemplate mongoTemplate;
-	//@Autowired private PathogenRepository pathogenRepository;
+	@Autowired PathogenRepository pathogenRepository;
 	
 	public void testRepository()
 	{
 		Pathogen pathogen;
-		/*
 		long start=(new Date()).getTime();
-		for (int index=0;index<100000;index++)
+		for (int index=0;index<100;index++)
 		{
 			pathogen=new Pathogen("pathogen"+index);
 			pathogenRepository.save(pathogen);
@@ -49,7 +48,6 @@ public class ResourceServiceImpl implements ResourceService
 			Pathogen cur=iter.next();
 			System.out.println("sequence="+cur.toString());
 		}
-		*/
 		
 		List<Pathogen> results = mongoTemplate.findAll(Pathogen.class);
 		System.out.println("mongoTemplate: " + results);

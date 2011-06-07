@@ -18,7 +18,7 @@ public class Setup {
 	{
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
 		SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
-		//sequenceService.testRepository();
+		sequenceService.testRepository();
 		
 		ResourceService resourceService=(ResourceService)ctx.getBean("resourceService");
 		resourceService.testRepository();

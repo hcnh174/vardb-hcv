@@ -9,9 +9,27 @@ import org.springframework.data.document.mongodb.MongoTemplate;
 import com.mongodb.Mongo;
 
 
-//@Configuration
+@Configuration
 public class AppConfig {
 
+	public @Bean MongoTemplate mongoTemplate(Mongo mongo) {
+		MongoTemplate mongoTemplate = new MongoTemplate(mongo, "test");
+		return mongoTemplate;
+	}
+
+	public @Bean MongoFactoryBean mongo() {
+		MongoFactoryBean mongo = new MongoFactoryBean();
+		//mongo.setHost("localhost");
+		mongo.setHost("127.0.0.1");
+		return mongo;
+	}
+
+	// Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes
+	public @Bean PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
+	
+	
 	/*
      public @Bean MongoFactoryBean mongo() {
           MongoFactoryBean mongo = new MongoFactoryBean();
