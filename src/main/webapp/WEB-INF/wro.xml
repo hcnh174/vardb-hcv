@@ -10,6 +10,11 @@
   
   <group name="hcv">
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/app.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/controller/Sequences.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/model/Sequence.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/store/Sequences.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/Edit.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/List.js</js>
   </group>
 
 </groups>
