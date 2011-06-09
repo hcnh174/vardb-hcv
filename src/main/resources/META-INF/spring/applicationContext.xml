@@ -82,7 +82,10 @@
     
     <jpa:repositories base-package="org.vardb.hcv.sequences"/>
     
-    
+    <!-- 
+    <datagraph:config storeDirectory="target/config-test"/>
+    -->
+     
     <!-- 
     <bean class="org.vardb.util.services.DatabaseTemplateLoader" name="databaseTemplateLoader">
 		<property name="sessionFactory" ref="sessionFactory"/>

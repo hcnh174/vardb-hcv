@@ -16,6 +16,7 @@ public class Setup {
 	public static void main(String ... args)
 	{
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		//ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
 		ctx.load("META-INF/spring/applicationContext.xml");
 		ctx.refresh();
 		

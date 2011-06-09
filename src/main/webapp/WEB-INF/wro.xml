@@ -8,8 +8,8 @@
 	<css>file:../../../workspace/vardb-hcv/src/main/webapp/css/layout.css</css>
   </group>
   
-  <group name="vardb">
-	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/vardb/vardb.js</js>
+  <group name="hcv">
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/app.js</js>
   </group>
 
 </groups>

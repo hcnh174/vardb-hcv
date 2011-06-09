@@ -11,7 +11,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.vardb.util.CFileHelper;
 
 @Service("resourceService")
 @Transactional
@@ -29,7 +28,7 @@ public class ResourceServiceImpl implements ResourceService
 		for (int index=0;index<100;index++)
 		{
 			pathogen=new Pathogen("pathogen"+index);
-			pathogen.setDescription("ネルソン");
+			//pathogen.setDescription("ネルソン");
 			pathogenRepository.save(pathogen);
 		}
 		long elapsed=(new Date()).getTime()-start;
@@ -51,7 +50,7 @@ public class ResourceServiceImpl implements ResourceService
 		{
 			Pathogen cur=iter.next();
 			System.out.println("pathogen="+cur.toString());
-			CFileHelper.appendFile("c:/temp/pathogens.txt",cur.toString());
+			//CFileHelper.appendFile("c:/temp/pathogens.txt",cur.toString());
 		}
 		
 		List<Pathogen> results = mongoTemplate.findAll(Pathogen.class);
