@@ -1,7 +1,6 @@
 package org.vardb.hcv.setup;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 import org.vardb.hcv.resources.ResourceService;
 import org.vardb.hcv.sequences.SequenceService;
 
@@ -16,7 +15,10 @@ public class Setup {
 	// mvn exec:java
 	public static void main(String ... args)
 	{
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load("META-INF/spring/applicationContext.xml");
+		ctx.refresh();
+		
 		SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
 		sequenceService.testRepository();
 		
