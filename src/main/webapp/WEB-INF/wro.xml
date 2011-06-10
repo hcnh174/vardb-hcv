@@ -9,13 +9,20 @@
   </group>
   
   <group name="hcv">
-
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/model/Sequence.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/store/Sequences.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/Edit.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/List.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/controller/Sequences.js</js>
-	<!-- <js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/app.js</js> -->
+	
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/alignment.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/demo.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/location.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/sequence.js</js>
+	
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/popups/termpopup.js</js>
+	
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/hcv.js</js>
   </group>
 
 </groups>

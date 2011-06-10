@@ -5,11 +5,21 @@
 
 <spring:message var="title" code="title_index"/>
 
-Homepage
+<h2>Homepage</h2>
+
+Here is a term: <a href="javascript:hcv.Hcv.getTerm('antigenic_variation')" id='term_antigenic_variation_link'>antigenic variation</a><br/>
+
+<div id="announcements"> </div><br/>
+<div id="browse_by_category"> </div><br/>
+
+<br/>
+<div id="commentsdiv"> </div>
 
 <script>
 Ext.onReady(function() {
 
+	hcv.Hcv.testFeature();
+	/*
 	Ext.define('Genotype', {
 		extend : 'Ext.data.Model',
 		fields : [ 'id', 'label' ],
@@ -35,6 +45,7 @@ Ext.onReady(function() {
 	    queryMode: 'local',
 	    typeAhead: true
 	});
+	*/
 });
 </script>
 </div>

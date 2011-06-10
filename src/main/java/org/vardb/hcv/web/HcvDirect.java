@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.vardb.hcv.sequences.Sequence;
 import org.vardb.hcv.sequences.SequenceRepository;
+import org.vardb.hcv.sequences.Term;
+import org.vardb.hcv.sequences.TermRepository;
 import org.vardb.util.ExtDirectHelper;
 
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethod;
@@ -22,9 +24,10 @@ public class HcvDirect
 {
 	//@Resource(name="userService") private UserService userService;	
 	
-	@Autowired private SequenceRepository repository;
+	@Autowired private SequenceRepository sequenceRepository;
+	@Autowired private TermRepository termRepository;
 	
-	@ExtDirectMethod()
+	@ExtDirectMethod
 	public String doEcho(String message) {
 		return message;
 	}
@@ -33,8 +36,16 @@ public class HcvDirect
 	 public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
 	 {
 		 Pageable pageable=ExtDirectHelper.getPageable(request);
-		 Page<Sequence> page=repository.findAll(pageable);
+		 Page<Sequence> page=sequenceRepository.findAll(pageable);
 		 return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),page.getContent());
+	 }
+	 
+	 @ExtDirectMethod
+	 public Term getTerm(String identifier)
+	 {
+		 Term term=termRepository.findByIdentifier(identifier);
+		 return term;
+		 //return CStringHelper.createMap("term",term, "definition","definition of "+term);
 	 }
 	 
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
@@ -73,7 +84,7 @@ public class HcvDirect
 		 {
 			 Sequence sequence=new Sequence("abc"+index,"acgtcgtcatgcatagtc");
 			 sequence.setGenotype("1b");
-			 repository.save(sequence);
+			 sequenceRepository.save(sequence);
 		 }
 	 }
 	 

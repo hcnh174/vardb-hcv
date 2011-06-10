@@ -5,7 +5,6 @@ package org.vardb.hcv.resources;
 
 import java.lang.Integer;
 import java.lang.String;
-import org.bson.types.ObjectId;
 
 privileged aspect Pathogen_Roo_JavaBean {
     
