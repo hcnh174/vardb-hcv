@@ -5,24 +5,26 @@
   <definition extends="default" name="index">
     <put-attribute name="body" value="/WEB-INF/views/index.jspx"/>
   </definition>
-
-  <definition extends="public" name="dataAccessFailure">
-    <put-attribute name="body" value="/WEB-INF/views/dataAccessFailure.jspx"/>
+  
+  <definition extends="viewport" name="explorer">
+    <put-attribute name="body" value="/WEB-INF/views/explorer.jspx"/>
+  </definition>
+  
+  <definition extends="default" name="login">
+    <put-attribute name="body" value="/WEB-INF/views/login.jspx"/>
+  </definition>
+  
+  <!-- errors -->
+  <definition extends="default" name="dataAccessFailure">
+    <put-attribute name="body" value="/WEB-INF/views/errors/dataAccessFailure.jspx"/>
   </definition>
 
-  <definition extends="public" name="resourceNotFound">
-    <put-attribute name="body" value="/WEB-INF/views/resourceNotFound.jspx"/>
+  <definition extends="default" name="resourceNotFound">
+    <put-attribute name="body" value="/WEB-INF/views/errors/resourceNotFound.jspx"/>
   </definition>
 
-  <definition extends="public" name="uncaughtException">
-    <put-attribute name="body" value="/WEB-INF/views/uncaughtException.jspx"/>
+  <definition extends="default" name="uncaughtException">
+    <put-attribute name="body" value="/WEB-INF/views/errors/uncaughtException.jspx"/>
   </definition>
 
-<definition extends="public" name="login">
-        <put-attribute name="body" value="/WEB-INF/views/login.jspx"/>
-    </definition>
-    
-    <definition extends="simple" name="test">
-    <put-attribute name="body" value="/WEB-INF/views/test.jspx"/>
-  </definition>
 </tiles-definitions>

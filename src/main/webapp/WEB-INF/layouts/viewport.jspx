@@ -4,25 +4,19 @@
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
 	
-	<jsp:output doctype-root-element="html"
-		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
-		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
 	
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />  
-	<jsp:directive.page pageEncoding="UTF-8" />
-	<jsp:output omit-xml-declaration="yes" />
-	
+	<jsp:directive.page pageEncoding="UTF-8" /> 
+			
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />	
-		<title>TITLE</title>	
-		
-		<util:scripts/>
+		<title>TITLE</title>
+		<util:scripts />
 	</head>
 	
   	<body>
-	    <tiles:insertAttribute name="header" ignore="true"/>
-    	<tiles:insertAttribute name="body"/>
-	    <tiles:insertAttribute name="footer" ignore="true"/>
+    	<tiles:insertAttribute name="body" />
 	</body>
 </html>
