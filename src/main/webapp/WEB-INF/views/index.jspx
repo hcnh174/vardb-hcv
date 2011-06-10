@@ -2,11 +2,39 @@
 <jsp:directive.page contentType="text/html;charset=UTF-8" />
 <jsp:output omit-xml-declaration="yes" />
 
+
+<spring:message var="title" code="title_index"/>
+
 Homepage
 
 <script>
 Ext.onReady(function() {
-	
+
+	Ext.define('Genotype', {
+		extend : 'Ext.data.Model',
+		fields : [ 'id', 'label' ],
+		proxy : {
+			type: 'direct',
+			directFn: hcvDirect.getGenotypes
+		}
+	});
+
+	var store = Ext.create('Ext.data.Store', {
+		autoLoad: true,
+		model : 'Genotype'	
+	});
+
+	var simpleCombo = Ext.create('Ext.form.field.ComboBox', {
+	    fieldLabel: 'Select a genotype',
+	    renderTo: Ext.getBody(),
+	    valueField: 'id',
+	    displayField: 'label',	    
+	    width: 300,
+	    labelWidth: 200,
+	    store: store,
+	    queryMode: 'local',
+	    typeAhead: true
+	});
 });
 </script>
 </div>

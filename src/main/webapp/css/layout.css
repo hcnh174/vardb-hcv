@@ -1,4 +1,4 @@
-#doc-vardb
+#doc-hcv
 {
 	margin: 0px;
 	padding: 0px;
@@ -17,24 +17,6 @@
 {
 	padding-right: 10px !important;
 }
-
-/*
-#head1, #head3
-{
-	background-color: @LIGHT_BLUE@;
-	vertical-align: middle;
-	border-top: 1px solid darkblue;
-	border-bottom: 1px solid darkblue;
-	padding: 0px;
-}
-
-#head3
-{
-	font-size: 95%;
-	text-align: left;
-	padding-top: 2px;
-}
-*/
 
 
 #head1

@@ -4,6 +4,8 @@
 <jsp:directive.page contentType="text/html;charset=UTF-8" />
 <jsp:output omit-xml-declaration="yes" />
 
+<spring:message var="title" code="title_explorer"/>
+
 Explorer
 
 <script>

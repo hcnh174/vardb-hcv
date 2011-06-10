@@ -1,12 +1,14 @@
 package org.vardb.hcv.web;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.vardb.hcv.sequences.Sequence;
 import org.vardb.hcv.sequences.SequenceRepository;
+import org.vardb.util.ExtDirectHelper;
 
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethod;
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethodType;
@@ -30,16 +32,51 @@ public class HcvDirect
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	 public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
 	 {
-		 Collection<Sequence> sequences=Lists.newArrayList();
+		 Pageable pageable=ExtDirectHelper.getPageable(request);
+		 Page<Sequence> page=repository.findAll(pageable);
+		 return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),page.getContent());
+	 }
+	 
+	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
+	 public List<IdLabel> getGenotypes()//ExtDirectStoreReadRequest request)
+	 {
+		 List<IdLabel> genotypes=Lists.newArrayList();
+		 genotypes.add(new IdLabel("1a","HCV genotype 1a"));
+		 genotypes.add(new IdLabel("1b","HCV genotype 1b"));
+		 genotypes.add(new IdLabel("2a","HCV genotype 2a"));
+		 genotypes.add(new IdLabel("2b","HCV genotype 2b"));
+		 genotypes.add(new IdLabel("3","HCV genotype 3"));
+		 return genotypes;
+		 //return new ExtDirectStoreResponse<IdLabel>(genotypes);
+	 }
+	 
+	 public static class IdLabel
+	 {
+		 private String id;
+		 private String label;
+		 
+		 public IdLabel(String id, String label)
+		 {
+			 this.id=id;
+			 this.label=label;
+		 }
+		 
+		 public String getId(){return this.id;}
+		 public String getLabel(){return this.label;}
+	 }
+	 
+	 ////////////////////////////////////////////////
+	 
+	 private void preload()
+	 {
 		 for (int index=0;index<1000;index++)
 		 {
 			 Sequence sequence=new Sequence("abc"+index,"acgtcgtcatgcatagtc");
 			 sequence.setGenotype("1b");
-			 sequences.add(sequence);
-		 }		 
-		 return new ExtDirectStoreResponse<Sequence>(sequences.size(), sequences);
+			 repository.save(sequence);
+		 }
 	 }
-	
+	 
 	 /*
 	@ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)

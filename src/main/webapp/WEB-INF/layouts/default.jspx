@@ -11,18 +11,38 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />  
 	<jsp:directive.page pageEncoding="UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	
+		
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />	
-		<title>TITLE</title>	
-		
+		<title>TITLE<!-- <tiles:getAsString name="title"/>  --></title>
 		<util:scripts/>
 	</head>
 	
   	<body>
-	    <tiles:insertAttribute name="header" ignore="true"/>
-    	<tiles:insertAttribute name="body"/>
-	    <tiles:insertAttribute name="footer" ignore="true"/>
+	    <div id="doc-hcv" class="yui-t1">
+			<tiles:insertAttribute name="header" ignore="true" />
+			<div id="bd">		
+				<div class="yui-b">
+					<div id="nav">spacer</div>
+				</div>
+				<div id="yui-main">
+					<div class="yui-b">
+						<div class="heading">TITLE</div>
+						<tiles:insertAttribute name="body"/> 
+						<br/>
+						
+						Here is a term: <a href="javascript:vardb.Vardb.getTerm('antigenic_variation')" id='term_antigenic_variation_link'>antigenic variation</a><br/>
+	
+						<div id="announcements"> </div><br/>
+						<div id="browse_by_category"> </div><br/>
+						
+						<br/>
+						<div id="commentsdiv"> </div>
+					</div>
+				</div>
+			</div>
+			<tiles:insertAttribute name="footer" ignore="true"/> 
+		</div>
 	</body>
 </html>

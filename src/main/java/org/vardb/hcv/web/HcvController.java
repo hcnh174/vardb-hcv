@@ -14,8 +14,13 @@ import org.vardb.util.CException;
 public class HcvController {
 	
 	@RequestMapping("/")
-    public String index() {
+    public String dflt() {
         return "index";
+    }
+	
+	@RequestMapping("/index")
+    public String index() {
+		return "index";
     }
 	
 	@RequestMapping("/explorer")
