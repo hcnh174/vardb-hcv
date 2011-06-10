@@ -13,8 +13,9 @@ Ext.define('hcv.view.sequence.List' ,{
     initComponent: function() {
 
         this.columns = [
-            {header: 'Name',  dataIndex: 'name',  flex: 1},
-            {header: 'Sequence', dataIndex: 'nt', flex: 1}
+            {header: 'Name',  dataIndex: 'accession',  width: 100},
+            {header: 'Genotype',  dataIndex: 'genotype',  width: 100},
+            {header: 'Sequence', dataIndex: 'sequence', flex: 1}
         ];
 
         this.callParent(arguments);

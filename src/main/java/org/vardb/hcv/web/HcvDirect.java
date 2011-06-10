@@ -1,12 +1,9 @@
 package org.vardb.hcv.web;
 
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.vardb.hcv.sequences.Sequence;
 import org.vardb.hcv.sequences.SequenceRepository;
@@ -16,7 +13,7 @@ import ch.ralscha.extdirectspring.annotation.ExtDirectMethodType;
 import ch.ralscha.extdirectspring.bean.ExtDirectStoreReadRequest;
 import ch.ralscha.extdirectspring.bean.ExtDirectStoreResponse;
 
-import com.google.inject.internal.Lists;
+import com.google.common.collect.Lists;
 
 @Component
 public class HcvDirect
@@ -25,32 +22,84 @@ public class HcvDirect
 	
 	@Autowired private SequenceRepository repository;
 	
-	@ExtDirectMethod
+	@ExtDirectMethod()
 	public String doEcho(String message) {
 		return message;
 	}
 
+	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
+	 public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
+	 {
+		 Collection<Sequence> sequences=Lists.newArrayList();
+		 for (int index=0;index<1000;index++)
+		 {
+			 Sequence sequence=new Sequence("abc"+index,"acgtcgtcatgcatagtc");
+			 sequence.setGenotype("1b");
+			 sequences.add(sequence);
+		 }		 
+		 return new ExtDirectStoreResponse<Sequence>(sequences.size(), sequences);
+	 }
+	
+	 /*
 	@ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
 	{
+		System.out.println("received request: "+request.toString());
+		System.out.println("pagenum: "+request.getPage());
+		System.out.println("size: "+request.getLimit());
 		int pagenum=request.getPage();
 		int size=request.getLimit();
+		Collection<Sequence> sequences=Lists.newArrayList();
+		
 		Pageable pageable=new PageRequest(pagenum,size);
 		//Page page=repository.findByGenotype("1b",pageable);
 		Page page=repository.findAll(pageable);
 		System.out.println("pages.total="+page.getTotalPages());
 		System.out.println("pages.size="+page.getSize());
+		System.out.println("pages.elements="+page.getTotalElements());
+		
 		Iterator<Sequence> iter=page.iterator();
-		Collection<Sequence> sequences=Lists.newArrayList();
 		while (iter.hasNext())
 		{
 			Sequence sequence=iter.next();
 			System.out.println("sequence="+sequence.toString());
 			sequences.add(sequence);
 		}
-		
 		return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),sequences);
+		//return new ExtDirectStoreResponse<Sequence>(0,sequences);
 	}
+	*/
+	 
+	/*
+	@ExtDirectMethod(ExtDirectMethodType.STORE_READ)
+	public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
+	{
+		System.out.println("received request: "+request.toString());
+		System.out.println("pagenum: "+request.getPage());
+		System.out.println("size: "+request.getLimit());
+		int pagenum=request.getPage();
+		int size=request.getLimit();
+		Collection<Sequence> sequences=Lists.newArrayList();
+		
+		Pageable pageable=new PageRequest(pagenum,size);
+		//Page page=repository.findByGenotype("1b",pageable);
+		Page page=repository.findAll(pageable);
+		System.out.println("pages.total="+page.getTotalPages());
+		System.out.println("pages.size="+page.getSize());
+		System.out.println("pages.elements="+page.getTotalElements());
+		
+		Iterator<Sequence> iter=page.iterator();
+		while (iter.hasNext())
+		{
+			Sequence sequence=iter.next();
+			System.out.println("sequence="+sequence.toString());
+			sequences.add(sequence);
+		}
+		return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),sequences);
+		//return new ExtDirectStoreResponse<Sequence>(0,sequences);
+	}
+	*/
+	
 	
 	/*
 	@ExtDirectMethod

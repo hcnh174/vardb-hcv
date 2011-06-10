@@ -12,12 +12,12 @@ Ext.define('hcv.view.sequence.Edit', {
                 items: [
                     {
                         xtype: 'textfield',
-                        name : 'name',
+                        name : 'accession',
                         fieldLabel: 'Name'
                     },
                     {
                         xtype: 'textfield',
-                        name : 'nt',
+                        name : 'sequence',
                         fieldLabel: 'Sequence'
                     }
                 ]

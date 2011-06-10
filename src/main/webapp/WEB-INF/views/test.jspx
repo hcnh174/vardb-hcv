@@ -4,9 +4,11 @@
 
 Test page
 
-<script type="text/javascript" src="/vardb-hcv/wro/hcv.js"><!-- spacer --></script>
+
 
 <script>
+
+/*
 Ext.Loader.setConfig({
 	enabled : true
 });
@@ -16,13 +18,15 @@ Ext.require([ 'Ext.grid.*',
               'Ext.data.*', 
               'Ext.util.*',
 		      'Ext.grid.PagingScroller' ]);
+*/
 
+/*
 Ext.onReady(function() {
-	Ext.direct.Manager.addProvider(Ext.app.REMOTING_API);
 	hcvDirect.doEcho('hi there', function(message)
 	{
 		alert(message);
 	});
 });
+*/
 </script>
 </div>
