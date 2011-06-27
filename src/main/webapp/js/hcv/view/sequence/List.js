@@ -33,13 +33,18 @@ Ext.define('hcv.view.sequence.List' ,{
 		};
     	
     	this.features=[ filters ];
-    	
+    	    	
     	/*
-    	var expander = new Ext.ux.grid.RowExpander( {
-    		tpl: new Ext.Template('<p><b>Accession:</b> {accession}</p>', '<p><b>Sequence:</b> {sequence}</p>')
-    	});
+    	this.plugins=[
+    	{
+            ptype: 'rowexpander',
+            rowBodyTpl:
+            [
+                '<p><b>Accession:</b> {accession}</p><br>',
+                '<p><b>Sequence:</b> {sequence}</p>'
+            ]
+        }];
     	*/
-    	//this.plugins=[expander];
     	
         this.columns = [
             {header: 'ID',  dataIndex: 'id',  width: 25, filterable: true},

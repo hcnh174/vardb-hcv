@@ -1,0 +1,293 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC
+	"-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Patients</title>
+<link rel="shortcut icon" href="/hdb/images/favicon.ico"/><meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="robots" content="noindex,nofollow"/>
+
+<link rel="stylesheet" type="text/css" media="all" href="http://extjs.cachefly.net/ext-3.2.1/resources/css/ext-all.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/hdb/css/extensions.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/hdb/css/global.css"/>
+<style type="text/css">
+</style>
+
+</head>
+<body>
+<div id="loading">
+    <div class="loading-indicator">
+    <img src="/hdb/images/extanim32.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>
+    Hepatitis Database<br />
+    <span id="loading-msg">Loading...</span></div>
+
+</div>
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading dependencies...';</script>
+
+
+
+
+
+
+
+
+<script src="http://extjs.cachefly.net/ext-3.2.1/adapter/ext/ext-base-debug.js" type="text/javascript"></script>
+<script src="http://extjs.cachefly.net/ext-3.2.1/ext-all-debug.js" type="text/javascript"></script>
+<script src="/hdb/remoting/api.js" type="text/javascript"></script>
+
+<script src="/hdb/js/extensions.js" type="text/javascript"></script>
+<script src="/hdb/js/nelson.js" type="text/javascript"></script>
+
+<script src="extensions/extjs-pagesize.js" type="text/javascript"></script>
+<script src="extensions/extjs-progressbarpager.js" type="text/javascript"></script>
+<script src="extensions/extjs-slidingpager.js" type="text/javascript"></script>
+
+<script src="namespace.js" type="text/javascript"></script>
+<script src="hdb.js" type="text/javascript"></script>
+
+<script src="nelson/namespace.js" type="text/javascript"></script>
+<script src="nelson/utils.js" type="text/javascript"></script>
+<script src="nelson/extjs/grid.js" type="text/javascript"></script>
+<script src="nelson/tags/applytagdialog.js" type="text/javascript"></script>
+<script src="nelson/tags/newtagdialog.js" type="text/javascript"></script>
+<script src="nelson/tags/tagcloud.js" type="text/javascript"></script>
+<script src="nelson/tags/tags.js" type="text/javascript"></script>
+<script src="nelson/widgets/sortdialog.js" type="text/javascript"></script>
+<script src="nelson/widgets/selectcolumnsdialog.js" type="text/javascript"></script>
+
+<script src="patients/abstractfilterform.js" type="text/javascript"></script>
+<script src="patients/columnbuilder.js" type="text/javascript"></script>
+<script src="patients/filterform.js" type="text/javascript"></script>
+<script src="patients/grid.js" type="text/javascript"></script>
+<script src="patients/queryform.js" type="text/javascript"></script>
+<script src="patients/renderer.js" type="text/javascript"></script>
+<script src="patients/toolbar.js" type="text/javascript"></script>
+<script src="patients/viewport.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!--
+
+var counts={
+  "types" : {
+    "性別" : [ {
+      "name" : "性別",
+      "value" : "1450",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "190",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "1945",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "300",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "3210",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "3225",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "3400",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "3465",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "410",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "4300",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "4390",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "4570",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "4845",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5145",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5245",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5285",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5525",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5565",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "5855",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "6470",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "6485",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "6555",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "70",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "8475",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "8530",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "8625",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "9270",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "945",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "9655",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "9915",
+      "count" : 1
+    }, {
+      "name" : "性別",
+      "value" : "9955",
+      "count" : 1
+    } ]
+  }
+};
+
+var attributes={
+  "rows" : [ {
+    "name" : "DBno",
+    "id" : "patient:DBno",
+    "type" : "INTEGER",
+    "description" : "",
+    "tagtype_id" : "patient"
+  }, {
+    "name" : "患者名",
+    "id" : "patient:患者名",
+    "type" : "STRING",
+    "description" : "",
+    "tagtype_id" : "patient"
+  }, {
+    "name" : "フリガナ",
+    "id" : "patient:フリガナ",
+    "type" : "STRING",
+    "description" : "",
+    "tagtype_id" : "patient"
+  }, {
+    "name" : "生年月日",
+    "id" : "patient:生年月日",
+    "type" : "DATE",
+    "description" : "",
+    "tagtype_id" : "patient"
+  }, {
+    "name" : "性別",
+    "id" : "patient:性別",
+    "type" : "STRING",
+    "description" : "",
+    "tagtype_id" : "patient"
+  }, {
+    "name" : "旧姓",
+    "id" : "patient:旧姓",
+    "type" : "STRING",
+    "description" : "",
+    "tagtype_id" : "patient"
+  } ]
+};
+
+
+
+/*
+var attributes=
+{
+	rows:
+	[
+		{
+			tagtype: 'patient',
+			name: 'dbno',
+			description: 'database number',
+			type: 'INTEGER',
+			hidden: false
+		},
+		{
+			tagtype: 'patient',
+			name: '性別',
+			description: 'sex',
+			type: 'STRING',
+			hidden: true
+		}	
+	]
+};
+*/
+
+Ext.onReady(function()
+{
+	document.getElementById('loading-msg').innerHTML = 'Initializing...';
+
+	
+	var viewport=new nelson.hdb.patients.Viewport(
+	{
+		query: '',
+		counts: counts,
+		attributes: attributes
+	});
+	Ext.get('loading').remove();
+
+});
+// -->
+</script>
+
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading...';</script>
+</body>
+</html>

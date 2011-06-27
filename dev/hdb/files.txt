@@ -1,0 +1,14 @@
+namespace.js
+hdb.js
+
+widgets/mainmenu.js
+
+patients/abstractfilterform.js
+patients/columnbuilder.js
+patients/filterform.js
+patients/grid.js
+patients/queryform.js
+patients/renderer.js
+patients/toolbar.js
+patients/viewport.js
+
