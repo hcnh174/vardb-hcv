@@ -2,20 +2,10 @@ package org.vardb.hcv.web;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import org.vardb.hcv.sequences.Sequence;
-import org.vardb.hcv.sequences.SequenceRepository;
-import org.vardb.hcv.sequences.Term;
-import org.vardb.hcv.sequences.TermRepository;
-import org.vardb.util.ExtDirectHelper;
 
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethod;
 import ch.ralscha.extdirectspring.annotation.ExtDirectMethodType;
-import ch.ralscha.extdirectspring.bean.ExtDirectStoreReadRequest;
-import ch.ralscha.extdirectspring.bean.ExtDirectStoreResponse;
 
 import com.google.common.collect.Lists;
 
@@ -24,14 +14,17 @@ public class HcvDirect
 {
 	//@Resource(name="userService") private UserService userService;	
 	
+	/*
 	@Autowired private SequenceRepository sequenceRepository;
 	@Autowired private TermRepository termRepository;
+	*/
 	
 	@ExtDirectMethod
 	public String doEcho(String message) {
 		return message;
 	}
 
+	/*
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	 public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
 	 {
@@ -47,7 +40,8 @@ public class HcvDirect
 		 return term;
 		 //return CStringHelper.createMap("term",term, "definition","definition of "+term);
 	 }
-	 
+	 */
+	
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	 public List<IdLabel> getGenotypes()//ExtDirectStoreReadRequest request)
 	 {
@@ -78,6 +72,7 @@ public class HcvDirect
 	 
 	 ////////////////////////////////////////////////
 	 
+	 /*
 	 private void preload()
 	 {
 		 for (int index=0;index<1000;index++)
@@ -87,6 +82,7 @@ public class HcvDirect
 			 sequenceRepository.save(sequence);
 		 }
 	 }
+	 */
 	 
 	 /*
 	@ExtDirectMethod(ExtDirectMethodType.STORE_READ)

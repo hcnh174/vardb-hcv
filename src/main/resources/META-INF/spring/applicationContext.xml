@@ -3,25 +3,30 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jee="http://www.springframework.org/schema/jee"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:repository="http://www.springframework.org/schema/data/repository"
-	xmlns:cache="http://www.springframework.org/schema/cache"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-	xmlns:datagraph="http://www.springframework.org/schema/data/graph"
-	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository-1.0.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
-		http://www.springframework.org/schema/data/graph http://www.springframework.org/schema/data/graph/datagraph-1.0.xsd">
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<!-- 
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	
+	xmlns:datagraph="http://www.springframework.org/schema/data/graph"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	
+	http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+	
+	
+	http://www.springframework.org/schema/data/graph http://www.springframework.org/schema/data/graph/datagraph-1.0.xsd
+	-->
 	
 	<context:property-placeholder location="classpath*:META-INF/spring/*.properties"/>
 		
@@ -78,10 +83,29 @@
         <property name="host" value="${email.host}"/>
     </bean>
     
-    <mongo:repositories base-package="org.vardb.hcv.resources"/>
     
-    <jpa:repositories base-package="org.vardb.hcv.sequences"/>
+     <!-- Default bean name is 'mongo'
+          <bean id="mongo" class="org.springframework.data.document.mongodb.MongoFactoryBean">
+    	<property name="host" value="localhost"/>
+    </bean>    
+    -->
+    <mongo:mongo host="127.0.0.1"/>  
+
     
+	<bean id="mongoTemplate" class="org.springframework.data.document.mongodb.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo"/>
+	    <constructor-arg name="databaseName" value="test"/>
+	</bean>
+        
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+	<mongo:repositories base-package="org.vardb.hcv.resources"/>
+
+	<jpa:repositories base-package="org.vardb.hcv.sequences"/>
+	
+    <!-- 
+    
+     -->
     <!-- 
     <datagraph:config storeDirectory="target/config-test"/>
     -->

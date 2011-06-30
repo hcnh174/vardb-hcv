@@ -2,7 +2,6 @@ package org.vardb.hcv.setup;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.vardb.hcv.resources.ResourceService;
-import org.vardb.hcv.sequences.SequenceService;
 
 //import groovy.lang.GroovyShell;
 
@@ -20,8 +19,8 @@ public class Setup {
 		ctx.load("META-INF/spring/applicationContext.xml");
 		ctx.refresh();
 		
-		SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
-		sequenceService.testRepository();
+		//SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
+		//sequenceService.testRepository();
 		
 		ResourceService resourceService=(ResourceService)ctx.getBean("resourceService");
 		resourceService.testRepository();

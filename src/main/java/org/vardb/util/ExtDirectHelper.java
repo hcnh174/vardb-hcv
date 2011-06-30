@@ -10,7 +10,7 @@ import ch.ralscha.extdirectspring.bean.ExtDirectStoreReadRequest;
 import ch.ralscha.extdirectspring.bean.SortDirection;
 import ch.ralscha.extdirectspring.bean.SortInfo;
 
-import com.google.inject.internal.Lists;
+import com.google.common.collect.Lists;
 
 public class ExtDirectHelper
 { 

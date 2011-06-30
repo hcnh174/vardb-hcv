@@ -2,26 +2,20 @@ package org.vardb.hcv.web;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.vardb.hcv.sequences.CommentRepository;
-import org.vardb.hcv.sequences.Feedback;
-import org.vardb.hcv.sequences.FeedbackRepository;
-import org.vardb.hcv.sequences.Page;
-import org.vardb.hcv.sequences.PageRepository;
 import org.vardb.util.CWebHelper;
 
 @Controller
 public class HcvController {
 	
+	/*
 	@Autowired private CommentRepository commentRepository;
 	@Autowired private FeedbackRepository feedbackRepository;
 	@Autowired private PageRepository pageRepository;
+	*/
 	
 	@RequestMapping("/")
     public String dflt() {
@@ -46,6 +40,7 @@ public class HcvController {
 		return "contact";
 	}
 
+    /*
 	@RequestMapping(value = "/contact", method = RequestMethod.POST)
 	public String contactSubmitted(Model model,
 			@RequestParam("name") String name,
@@ -58,7 +53,8 @@ public class HcvController {
 		feedbackRepository.save(feedback);
 		return "thankyou";
 	}
-	
+	*/
+    
 	/////////////////////////////////////////////////////////////
 	
 	
@@ -91,6 +87,7 @@ public class HcvController {
 	
 	///////////////////////////////////////////////////////////////////
 		
+	/*
 	@RequestMapping(value="/pages/{identifier}")
 	public String page(Model model, HttpServletResponse response,
 			@PathVariable String identifier)
@@ -99,6 +96,7 @@ public class HcvController {
 		model.addAttribute("page", page);
 		return "page";
 	}
+	*/
 	
 	/////////////////////////////////////////
 	
