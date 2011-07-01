@@ -13,7 +13,7 @@ Ext.define('hcv.popups.TermPopup',
 		var self=this;
 		var config=
 		{
-			items: new Ext.tab.TabPanel(
+			items: Ext.create('Ext.tab.Panel',
 			{
 				activeTab: 0,
 				deferredRender: false,
@@ -27,7 +27,6 @@ Ext.define('hcv.popups.TermPopup',
 					}
 				]
 			}),
-	
 			buttons:
 			[
 				{

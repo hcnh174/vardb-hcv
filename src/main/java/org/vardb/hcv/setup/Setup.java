@@ -2,35 +2,33 @@ package org.vardb.hcv.setup;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.vardb.hcv.resources.ResourceService;
+import org.vardb.util.WekaHelper;
 
 //import groovy.lang.GroovyShell;
 
 
 
 public class Setup {
-
 	
-	
-	// mvn exec:java
+	// mvn mvn test -Psetup
 	public static void main(String ... args)
 	{
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		//ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
 		ctx.load("META-INF/spring/applicationContext.xml");
 		ctx.refresh();
 		
 		//SequenceService sequenceService=(SequenceService)ctx.getBean("sequenceService");
 		//sequenceService.testRepository();
 		
-		ResourceService resourceService=(ResourceService)ctx.getBean("resourceService");
-		resourceService.testRepository();
+		//ResourceService resourceService=(ResourceService)ctx.getBean("resourceService");
+		//resourceService.testRepository();
 		
 		//GraphHelper.test();
 		//GenbankParser.parseFile("d:/unzipped/hcv.gb");
 		
-		//Setup setup=new Setup();
-		//String filename="f:/analysis/personalized/svr.arff";
-		//WekaHelper.test(filename);
+		Setup setup=new Setup();
+		String filename="c:/projects/analysis/personalized/weka/svr.arff";
+		WekaHelper.test(filename);
 	
 		
 	}

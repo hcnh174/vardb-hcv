@@ -6,9 +6,12 @@
   <group name="global">  	
   	<css>file:../../../workspace/vardb-hcv/src/main/webapp/css/yui-grids.css</css>
 	<css>file:../../../workspace/vardb-hcv/src/main/webapp/css/layout.css</css>
+	<css>file:../../../workspace/vardb-hcv/src/main/webapp/css/navigation.css</css>
   </group>
   
   <group name="hcv">
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/util/utils.js</js>
+	
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/model/Sequence.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/store/Sequences.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/Edit.js</js>
@@ -21,6 +24,13 @@
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/sequence.js</js>
 	
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/popups/termpopup.js</js>
+	
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/navigation.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/mainmenu.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/announcements.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/browsebycategory.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comment.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comments.js</js>
 	
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/hcv.js</js>
   </group>

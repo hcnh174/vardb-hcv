@@ -45,3 +45,6 @@ git push origin master
 git clone git@github.com:hcnh174/vardb-hcv.git
 
 
+# to find which process is using a port
+"netstat -a -o" then look up pid in Task Manager (add PID column to display)
+

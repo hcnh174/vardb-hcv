@@ -6,6 +6,7 @@
 <tiles-definitions>
 
   <definition name="default" template="/WEB-INF/layouts/default.jspx">
+  	<put-attribute name="title" value="TITLE"/>
     <put-attribute name="header" value="/WEB-INF/views/_header.jspx" />
     <put-attribute name="footer" value="/WEB-INF/views/_footer.jspx" />
   </definition>

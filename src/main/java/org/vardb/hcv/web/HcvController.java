@@ -1,11 +1,16 @@
 package org.vardb.hcv.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.vardb.hcv.patients.Patient;
+import org.vardb.hcv.patients.PatientService;
 import org.vardb.util.CWebHelper;
 
 @Controller
@@ -16,20 +21,46 @@ public class HcvController {
 	@Autowired private FeedbackRepository feedbackRepository;
 	@Autowired private PageRepository pageRepository;
 	*/
+	@Autowired private PatientService patientService;
+	//@Autowired private PatientRepository patientRepository;
 	
 	@RequestMapping("/")
-    public String dflt() {
+    public String dflt(Model model) {
         return "index";
     }
 	
 	@RequestMapping("/index")
-    public String index() {
+    public String index(Model model) {
 		return "index";
     }
 	
 	@RequestMapping("/explorer")
-    public String explorer() {
+    public String explorer(Model model) {
         return "explorer";
+    }
+	
+	@RequestMapping("/patients")
+    public String patients(Model model) {
+        return "patients";
+    }
+	
+	////////////////////////////////////////
+	
+	@RequestMapping("/patients/preload")
+    public void patientsPreload( HttpServletResponse response)
+    		//@RequestParam(value="identifier", required=false, defaultValue="patient10") String identifier)
+	{
+		patientService.loadTestData();
+		CWebHelper.write(response, "loaded test data");
+    }
+	
+	@RequestMapping("/patients/ajax")
+    public void patientsAjax( HttpServletResponse response)
+    		//@RequestParam(value="identifier", required=false, defaultValue="patient10") String identifier)
+	{
+		//Patient patient=patientRepository.findByIdentifier(identifier);
+		List<Patient> patients=patientService.testRepository();
+		json(response,"total",patients.size(),"records",patients);
     }
 	
 	////////////////////////////////////////////////////////
