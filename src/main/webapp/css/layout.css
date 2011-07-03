@@ -177,3 +177,43 @@
 	color: black;
 }
 
+
+/*********************************************/
+
+
+.comments-heading
+{
+	font-weight: bold;
+	color: #15428B;
+	font-family: tahoma,arial,verdana,sans-serif;
+}
+
+.comment-item
+{
+    font: normal 11px tahoma, arial, helvetica, sans-serif;
+    padding: 3px 10px 3px 10px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #eeeeee;
+    white-space: normal;
+    color: #555;
+}
+
+.comment-item h3
+{
+    display: block;
+    font: inherit;
+    font-weight: bold;
+    color: #222;
+}
+
+.comment-item h3 span
+{
+    float: right;
+    font-weight: normal;
+    margin: 0 0 5px 5px;
+    width: 150px;
+    display: block;
+    clear: none;
+}
+
+

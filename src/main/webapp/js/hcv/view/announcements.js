@@ -12,118 +12,75 @@ Ext.define('hcv.view.Announcements',
 	loadingText: 'Loading announcements...',
 	emptyText: 'No new announcements',
 	iconCls: 'icon-rss',
-	
+	plugins:
+	[
+	 	{
+            ptype: 'rowexpander',
+            rowBodyTpl: '<p>{description}</p>'
+        }
+	],
+	columns:
+	[
+	   {header: "Title", sortable: true, dataIndex: 'title', width: 250, renderer: this.renderTitle},
+	   {header: "Date", dataIndex: 'pubDate', width: 50, renderer: Ext.util.Format.dateRenderer('M j, Y')},
+	   {header: "Link", dataIndex: 'link', width: 20, renderer: this.renderLink}
+	],
+
 	initComponent:function()
-	{
-		/*
-		var fields=
-		[
-			{name: 'title'},
-			{name: 'author'},
-			{name: 'pubDate', type:'date'},
-			{name: 'link'},
-			{name: 'description'},
-			{name: 'content'}
-		];
-		
-		var expander = new Ext.ux.RowExpander({
-	        rowBodyTpl : new Ext.Template(
-	            '<p>{description}</p>'
-	        )
-	    });
-		*/
-		
-		Ext.regModel('announcement', {
-		    fields:
-			[
+	{		
+		Ext.define('Announcement',{
+	        extend: 'Ext.data.Model',
+	        fields: [
 				{name: 'title'},
 				{name: 'author'},
 				{name: 'pubDate', type:'date'},
 				{name: 'link'},
 				{name: 'description'},
 				{name: 'content'}
-			]
-		});
-		
-		/*
-		var proxy = new Ext.data.AjaxProxy({
-		    model: 'User',
-		    reader: {
-		        type: 'xml',
-		        root: 'users'
-		    }
-		});
-		*/
-		
-		var store=new Ext.data.Store({
-		    model: 'announcement',
-		    proxy: {
-		        type: 'ajax',
-		        url : 'announcements.xml',
-		        reader: {
-			        type: 'xml',
-			        root: 'item'
-			    }
-		    },
-		    autoLoad: true
-		});
-		
-		
-		
-		/*
-		var store = new Ext.data.Store({
-			url: 'ajax/announcements.xml',
-			reader: new Ext.data.XmlReader({record: 'item'},fields),
-			sortInfo: {field: 'pubDate', direction: 'DESC'}
-		});
-		*/
-		
-		/*
-		var expander = new Ext.ux.RowExpander({
-	        rowBodyTpl : new Ext.Template(
-	            '<p>{description}</p>'
-	        )
+	        ]
 	    });
-		*/
+
+	    var store = Ext.create('Ext.data.Store', {
+	        model: 'Announcement',
+	        autoLoad: true,
+	        proxy: {
+	            type: 'ajax',
+	            url: 'announcements.xml',
+	            reader: {
+	                type: 'xml',
+	                record: 'item',
+	                idProperty: 'guid',
+	                totalRecords: '@total'
+	            }
+	        }
+	    });
+
+		var config=
+		{
+			store: store,
+			viewConfig: {forceFit: true},
+			dockedItems:
+			[
+				{
+			        xtype: 'pagingtoolbar',
+			        store: store,
+			        dock: 'bottom',
+			        displayInfo: true,
+			        displayMsg: 'Displaying news {0} - {1} of {2}',
+					emptyMsg: "No news to display"
+			    }
+			]
+		};
+		Ext.apply(this, Ext.apply(this.initialConfig, config));
+		this.callParent(arguments);
+		
+		store.load();
 		
 		/*
 		store.on('load', function(){
 			expander.expandRow(0);
 		});
 		*/
-		store.load();
-
-		var config=
-		{
-			store: store,
-			viewConfig: {forceFit: true},
-			columns:
-			[
-				//expander,
-				{header: "Title", sortable: true, dataIndex: 'title', width: 250, renderer: this.renderTitle},
-				{header: "Date", dataIndex: 'pubDate', width: 50, renderer: Ext.util.Format.dateRenderer('M j, Y')},
-				{header: "Link", dataIndex: 'link', width: 20, renderer: this.renderLink}
-			],
-			/*
-			plugins:
-			[
-				{
-		            ptype: 'rowexpander',
-		            rowBodyTpl : '<p>{description}</p>'
-        		}
-        	],
-        	*/
-			bbar: new Ext.PagingToolbar(
-			{
-				pageSize: 1,
-				store: store,
-				displayInfo: true,
-				displayMsg: 'Displaying news {0} - {1} of {2}',
-				emptyMsg: "No news to display"
-			})
-		};
-		Ext.apply(this, Ext.apply(this.initialConfig, config));
-		hcv.view.Announcements.superclass.initComponent.apply(this, arguments);
 	},
 	
 	renderTitle:function(value, p, record)

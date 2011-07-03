@@ -392,7 +392,7 @@ var navigation = {
 
 Ext.onReady(function() {
 
-	utils=hcv.util.Utils;
+	//utils=hcv.util.Utils;
 	
 	new hcv.view.Navigation({renderTo: 'nav', data: navigation, cur: 'homepage'});
 		
@@ -401,16 +401,14 @@ Ext.onReady(function() {
 		renderTo: 'mainmenudiv'
 	});
 
-	/*
-	var commentsgrid=new hcv.view.Comments(
+	var commentsgrid=Ext.create('hcv.view.comment.List',
 	{
 		renderTo: 'commentsdiv',
 		type: 'PAGE',
 		identifier: 'homepage'
 	});
-	*/
-	
-	//new hcv.view.Announcements({renderTo: 'announcements'});
+
+	new hcv.view.Announcements({renderTo: 'announcements'});
 	new hcv.view.BrowseByCategory({renderTo: 'browse_by_category', data: categories});
 	
 	

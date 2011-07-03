@@ -1,16 +1,17 @@
-Ext.define('hcv.controller.Sequences', {
+Ext.define('hcv.controller.Comments', {
 	extend: 'Ext.app.Controller',
 	
-	models: ['Sequence'],
-	stores: ['Sequences'],
+	models: ['Comment'],
+	stores: ['Comments'],
 	
 	views: [
-	 	'sequence.List',
-	 	'sequence.Edit'
+	 	'comment.List'
+	 	//'comment.Submit'
 	],
     
     init: function() {
-        console.log('Initialized Sequences! This happens before the Application launch function is called');
+        console.log('Initialized comments! This happens before the Application launch function is called');
+        /*
     	this.control({
             'sequencelist': {
                 itemdblclick: this.editSequence
@@ -19,8 +20,10 @@ Ext.define('hcv.controller.Sequences', {
                 click: this.updateSequence
             }
         });
-    },
+        */
+    }
 
+    /*
     editSequence: function(grid, record) {
         console.log('Double clicked on ' + record.get('name'));
         var view = Ext.widget('sequenceedit');
@@ -37,4 +40,5 @@ Ext.define('hcv.controller.Sequences', {
         win.close();
         this.getSequencesStore().sync();
     }
+    */
 });

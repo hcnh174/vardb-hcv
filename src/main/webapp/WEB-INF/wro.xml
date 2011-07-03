@@ -16,6 +16,7 @@
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/store/Sequences.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/Edit.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/sequence/List.js</js>
+	
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/controller/Sequences.js</js>
 	
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/graphics/alignment.js</js>
@@ -29,10 +30,19 @@
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/mainmenu.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/announcements.js</js>
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/browsebycategory.js</js>
-	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comment.js</js>
-	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comments.js</js>
-	
+
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/model/Comment.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/store/Comments.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comment/List.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/view/comment/Submit.js</js>
+	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/controller/Comments.js</js>
+
 	<js>file:../../../workspace/vardb-hcv/src/main/webapp/js/hcv/hcv.js</js>
   </group>
 
 </groups>
+
+	<!-- 
+
+	 -->
+	 

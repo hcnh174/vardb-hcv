@@ -2,11 +2,14 @@ package org.vardb.util;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.vardb.hcv.sequences.Sequence;
 
 import ch.ralscha.extdirectspring.bean.ExtDirectStoreReadRequest;
+import ch.ralscha.extdirectspring.bean.ExtDirectStoreResponse;
 import ch.ralscha.extdirectspring.bean.SortDirection;
 import ch.ralscha.extdirectspring.bean.SortInfo;
 
@@ -28,5 +31,10 @@ public class ExtDirectHelper
 		 //System.out.println("sorts: "+sort.toString());
 		 Pageable pageable=new PageRequest(request.getPage(),request.getLimit(), sort);
 		 return pageable;
+	 }
+	 
+	 public static <T> ExtDirectStoreResponse<T> getResponse(Page<T> page)
+	 {
+		 return new ExtDirectStoreResponse<T>((int)page.getTotalElements(),page.getContent());
 	 }
 }

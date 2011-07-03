@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+import org.vardb.hcv.sequences.Comment;
+import org.vardb.hcv.sequences.CommentRepository;
 import org.vardb.hcv.sequences.Sequence;
 import org.vardb.hcv.sequences.SequenceRepository;
 import org.vardb.hcv.sequences.Term;
@@ -26,6 +28,7 @@ public class HcvDirect
 	
 	@Autowired private SequenceRepository sequenceRepository;
 	@Autowired private TermRepository termRepository;
+	@Autowired private CommentRepository commentRepository;
 	
 	@ExtDirectMethod
 	public String doEcho(String message) {
@@ -35,18 +38,34 @@ public class HcvDirect
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	 public ExtDirectStoreResponse<Sequence> loadWithPaging(ExtDirectStoreReadRequest request)
 	 {
+		 //preloadSequences();		 
 		 Pageable pageable=ExtDirectHelper.getPageable(request);
 		 Page<Sequence> page=sequenceRepository.findAll(pageable);
-		 return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),page.getContent());
+		 return ExtDirectHelper.getResponse(page);
+		 //return new ExtDirectStoreResponse<Sequence>((int)page.getTotalElements(),page.getContent());
 	 }
+	 
 	 
 	 @ExtDirectMethod
 	 public Term getTerm(String identifier)
 	 {
+		 termRepository.save(new Term(identifier));
 		 Term term=termRepository.findByIdentifier(identifier);
 		 return term;
 		 //return CStringHelper.createMap("term",term, "definition","definition of "+term);
 	 }
+	 
+	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
+	 public ExtDirectStoreResponse<Comment> getComments(ExtDirectStoreReadRequest request)
+	{
+		 //preloadComments();
+		 Pageable pageable=ExtDirectHelper.getPageable(request);
+		 System.out.println("request.query="+request.getQuery());
+		 //List<Comment> comments=commentRepository.findByTypeAndIdentifier(type, identifier);
+		 Page<Comment> page=commentRepository.findAll(pageable);
+		 return ExtDirectHelper.getResponse(page);
+	}
+	 
 	
 	 @ExtDirectMethod(ExtDirectMethodType.STORE_READ)
 	 public List<IdLabel> getGenotypes()//ExtDirectStoreReadRequest request)
@@ -78,8 +97,7 @@ public class HcvDirect
 	 
 	 ////////////////////////////////////////////////
 	 
-	 /*
-	 private void preload()
+	 private void preloadSequences()
 	 {
 		 for (int index=0;index<1000;index++)
 		 {
@@ -88,7 +106,15 @@ public class HcvDirect
 			 sequenceRepository.save(sequence);
 		 }
 	 }
-	 */
+	 
+	 private void preloadComments()
+	 {
+		 for (int index=0;index<100;index++)
+		 {
+			 Comment comment=new Comment("cnh1","PAGE","homepage","First?");
+			 commentRepository.save(comment);
+		 }
+	 }
 	 
 	 /*
 	@ExtDirectMethod(ExtDirectMethodType.STORE_READ)

@@ -10,7 +10,6 @@
 		
     <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/ext-all-debug-w-comments.js"><!-- spacer --></script>
     
-<script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/RowExpander.js"><!-- spacer --></script>
 <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/grid/FiltersFeature.js"><!-- spacer --></script>
 <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/grid/filter/Filter.js"><!-- spacer --></script>
 <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/grid/menu/ListMenu.js"><!-- spacer --></script>
@@ -21,6 +20,7 @@
 <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/grid/filter/NumericFilter.js"><!-- spacer --></script>
 <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/examples/ux/grid/filter/StringFilter.js"><!-- spacer --></script>
     
+    <script type="text/javascript" charset="utf-8" src="/vardb-hcv/js/extensions/extjs-ux-rowexpander.js"><!-- spacer --></script>
     
 	<script type="text/javascript" src="/vardb-hcv/api-debug.js"><!-- spacer --></script>
 	
