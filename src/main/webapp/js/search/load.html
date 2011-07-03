@@ -1,0 +1,155 @@
+	 
+<!DOCTYPE html PUBLIC
+	"-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>varDB Search Results</title>
+<link rel="shortcut icon" href="/vardb/images/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.0.2/resources/css/ext-all.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/vardb/css/global.css"/>
+
+</head>
+<body>
+<!--some change-->
+<div id="loading">
+    <div class="loading-indicator"><img src="/vardb/images/extanim32.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>varDB - <a href="http://www.vardb.org">www.vardb.org</a><br /><span id="loading-msg">Loading...</span></div>
+
+</div>
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading dependencies...';</script>
+
+
+<script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.2a/ext-all-debug-w-comments.js"></script>
+
+<script>
+Ext.namespace('Ext.ux');
+Ext.namespace('Ext.ux.vardb');
+Ext.namespace('Ext.ux.vardb.data');
+Ext.namespace('Ext.ux.vardb.cart');
+Ext.namespace('Ext.ux.vardb.search');
+Ext.namespace("Ext.ux.vardb.regex");
+Ext.namespace('Ext.ux.vardb.blast');
+Ext.namespace('Ext.ux.vardb.phiblast');
+Ext.namespace('Ext.ux.vardb.viewer');
+Ext.namespace('Ext.ux.vardb.tags');
+Ext.namespace('Ext.ux.vardb.explorer');
+Ext.namespace('Ext.ux.vardb.explorer.quickcart');
+Ext.namespace('Ext.ux.vardb.admin');
+
+Ext.BLANK_IMAGE_URL = 'http://cdn.sencha.io/ext-3.0.0/resources/images/default/s.gif';
+
+vardb={};
+vardb.webapp='/search';
+</script>
+
+<!-- 
+<script src="livegrid-all-debug.js" type="text/javascript"></script>
+<script src="extjs-lovcombo.js" type="text/javascript"></script>
+<script src="extjs-select.js" type="text/javascript"></script>
+
+<script src="selectlist.js" type="text/javascript"></script>
+<script src="uniquevaluescombo.js" type="text/javascript"></script>
+<script src="fieldcombo.js" type="text/javascript"></script>
+<script src="renderer.js" type="text/javascript"></script>
+<script src="constants.js" type="text/javascript"></script>
+<script src="columnbuilder.js" type="text/javascript"></script>
+<script src="filterform.js" type="text/javascript"></script>
+<script src="livesequencegrid.js" type="text/javascript"></script>
+ -->
+
+<script src="search.js" type="text/javascript"></script>
+
+<!--
+<script src="queryform.js" type="text/javascript"></script>
+<script src="filterform.js" type="text/javascript"></script>
+<script src="grid.js" type="text/javascript"></script>
+<script src="toolbar.js" type="text/javascript"></script>
+<script src="results.js" type="text/javascript"></script>
+-->
+<script type="text/javascript">
+<!--
+var counts={"pathogens":[{"identifier":"plasmodium.falciparum","name":
+      "Plasmodium falciparum","numsequences":27303}],"families":[{
+      "identifier":"plasmodium.falciparum.var","name":"var","numsequences":
+      27303}],"subgroups":[],"genomes":[],"diseases":[{"identifier":
+      "malaria","name":"Malaria","numsequences":27303}],"orthologs":[{
+      "identifier":"var","name":"var","numsequences":27303}],"countries":[{
+      "identifier":"Kenya","name":"Kenya","numsequences":1788},{"identifier":
+      "Papua New Guinea","name":"Papua New Guinea","numsequences":954},{
+      "identifier":"Mali","name":"Mali","numsequences":141},{"identifier":
+      "Thailand","name":"Thailand","numsequences":105},{"identifier":
+      "Solomon Islands","name":"Solomon Islands","numsequences":90},{
+      "identifier":"Gabon","name":"Gabon","numsequences":80},{"identifier":
+      "Malawi","name":"Malawi","numsequences":77},{"identifier":
+      "Venezuela","name":"Venezuela","numsequences":60},{"identifier":
+      "Philippines","name":"Philippines","numsequences":55},{"identifier":
+      "Zimbabwe","name":"Zimbabwe","numsequences":52},{"identifier":
+      "Sierra Leone","name":"Sierra Leone","numsequences":46},{"identifier":
+      "India","name":"India","numsequences":20},{"identifier":"Honduras",
+      "name":"Honduras","numsequences":18},{"identifier":"South Africa",
+      "name":"South Africa","numsequences":5}],"refs":[],"pfams":[{
+      "identifier":"Duffy_binding","name":"PF05424","numsequences":166},{
+      "identifier":"Hep_Hag","name":"PF05658","numsequences":15},{
+      "identifier":"DUF1108","name":"PF06531","numsequences":4},{
+      "identifier":"VirC2","name":"PF07181","numsequences":4},{"identifier":
+      "zf-XS","name":"PF03470","numsequences":2},{"identifier":
+      "Mitovir_RNA_pol","name":"PF05919","numsequences":2},{"identifier":
+      "Toxin_2","name":"PF00451","numsequences":2},{"identifier":"PPAK",
+      "name":"PF02818","numsequences":2},{"identifier":"Ornatin","name":
+      "PF02088","numsequences":2},{"identifier":"Rhabdo_M2","name":
+      "PF04785","numsequences":2},{"identifier":"Ag332","name":"PF04671",
+      "numsequences":1},{"identifier":"ORC2","name":"PF04084","numsequences":
+      1},{"identifier":"RICH","name":"PF05062","numsequences":1},{
+      "identifier":"Whi5","name":"PF08528","numsequences":1},{"identifier":
+      "CagY_M","name":"PF07337","numsequences":1},{"identifier":"Mo25",
+      "name":"PF08569","numsequences":1},{"identifier":"Notch","name":
+      "PF00066","numsequences":1},{"identifier":"Filo_glycop","name":
+      "PF01611","numsequences":1},{"identifier":"Rubrerythrin","name":
+      "PF02915","numsequences":1},{"identifier":"UPF0300","name":"PF08594",
+      "numsequences":1}],"sources":[{"identifier":"est","name":"dbEST",
+      "numsequences":17572},{"identifier":"core","name":"Core",
+      "numsequences":9389},{"identifier":"broad","name":"Broad Institute",
+      "numsequences":121}],"bundles":[],"tags":[],"divisions":[{"identifier":
+      "PROTIST","name":"Protist","numsequences":27303}],"regions":[{"region":
+      "AFRICA","name":"Africa","numsequences":3017},{"region":"ASIA","name":
+      "Asia","numsequences":180},{"region":"CENTRAL_AMERICA","name":
+      "Central America","numsequences":18},{"region":"OTHER","name":
+      "Other","numsequences":216},{"region":"SOUTH_AMERICA","name":
+      "South America","numsequences":60}],"ratings":[{"quality":"Low",
+      "identifier":"L1","name":"Low","numsequences":27303}],"pseudogenes":
+  1,"truncated":0,"uploaded":0,"numdivisions":1,"numpathogens":1,
+  "numfamilies":1,"numorthologs":1,"numdiseases":1,"numgenomes":0,
+  "numsubgroups":0,"numcountries":14,"numregions":5,"numrefs":0,"numratings":
+  1,"numsources":3}
+;
+// -->
+</script>
+
+<script type="text/javascript">
+<!--
+Ext.onReady(function()
+{
+	//Ext.ux.vardb.Vardb.onReady();
+
+	document.getElementById('loading-msg').innerHTML = 'Initializing...';
+
+	var results=new Ext.ux.vardb.search.Results(
+	{
+		//list_id: '88ea380f6f0e450c9eea43bcaa225b906c6e7018',
+		list_id: '8c5ad93192b2babfae5ddabbb9b9eb1818dbe20a',
+		//list_id: '954866e39862cfe99dcc9d571f48df0f89ca16ad',
+		query: 'var',
+		filter: '',
+		pagesize: 20,
+		renderTo: 'resultsdiv',
+		counts: counts
+	});
+	
+	Ext.get('loading').remove();
+
+});
+// -->
+</script>
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading...';</script>
+</body>
+</html>

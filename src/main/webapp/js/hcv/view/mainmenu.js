@@ -27,7 +27,8 @@ Ext.define('hcv.view.MainMenu',
 		};
 		
 		Ext.apply(this, Ext.apply(this.initialConfig, config));
-		hcv.view.MainMenu.superclass.initComponent.apply(this, arguments);
+		//hcv.view.MainMenu.superclass.initComponent.apply(this, arguments);
+		this.callParent(arguments);
 	},
 	
 	createHomepageMenu:function()
