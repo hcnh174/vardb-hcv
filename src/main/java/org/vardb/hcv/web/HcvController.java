@@ -129,6 +129,14 @@ public class HcvController {
 	}
 	*/
 	
+	////////////////////////////////////////////////////////////
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Model model)
+	{
+		return "test";
+	}
+	
 	/////////////////////////////////////////
 	
 	protected String json(HttpServletResponse response, Object... args)
