@@ -50,3 +50,6 @@ git clone git@github.com:hcnh174/vardb-hcv.git
 
 # throw away local committed changes
 git reset --hard origin/master
+
+#analyze dependencies
+mvn dependency:analyze

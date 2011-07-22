@@ -15,11 +15,12 @@
 		<env.properties>env-deploy.properties</env.properties>
 		<os.properties>os-linux.properties</os.properties>
 		<!-- 
-		<spring.data.jpa.version>1.0.0.M2</spring.data.jpa.version>
-		<spring.data.mongodb.version>1.0.0.M3</spring.data.mongodb.version>
-		 -->
-		<spring.data.jpa.version>1.0.0.BUILD-SNAPSHOT</spring.data.jpa.version>
+		<spring.data.jpa.version>1.0.0.M2</spring.data.jpa.version>		
 		<spring.data.mongodb.version>1.0.0.BUILD-SNAPSHOT</spring.data.mongodb.version>
+		 -->
+		<spring.data.commons.version>1.1.0.RELEASE</spring.data.commons.version>
+		<spring.data.jpa.version>1.0.0.RELEASE</spring.data.jpa.version>
+		<spring.data.mongodb.version>1.0.0.M3</spring.data.mongodb.version>
 	</properties>
 	<scm>
 		<connection>scm:git:git@github.com:hcnh174/vardb-hcv.git</connection>
@@ -31,6 +32,11 @@
 			<groupId>org.vardb</groupId>
 			<artifactId>vardb-util</artifactId>
 			<version>0.1.0.BUILD-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons-core</artifactId>
+			<version>${spring.data.commons.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework.data</groupId>
