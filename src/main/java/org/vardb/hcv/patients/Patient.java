@@ -3,7 +3,7 @@ package org.vardb.hcv.patients;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.document.mongodb.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 

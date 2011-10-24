@@ -1,10 +1,6 @@
 package org.vardb.hcv.patients;
 
-import java.util.List;
-
-import org.bson.types.ObjectId;
-import org.springframework.data.document.mongodb.repository.MongoRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface PatientRepository extends MongoRepository<Patient, String>
 {
